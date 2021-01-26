@@ -28,7 +28,7 @@ jobs:
       id: docker_build
       uses: docker/build-push-action@v2
       with:
-        context: ./.
+        context: ./azure-vote/.
         file: ./azure-vote/Dockerfile
         push: true
         tags: ghcr.io/vergiet/azure-vote:latest, ghcr.io/vergiet/azure-vote:0.1.0
