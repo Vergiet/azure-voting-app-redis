@@ -4,6 +4,7 @@ name: vote_app_-_deploy
 on:
   registry_package:
     types: [published, updated]
+  workflow_dispatch:
   workflow_run:
     workflows: ["vote_app_-_build"]
     types: 
