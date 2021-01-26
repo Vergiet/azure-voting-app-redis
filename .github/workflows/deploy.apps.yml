@@ -27,5 +27,5 @@ jobs:
       with:
         manifests: |
             azure-vote-all-in-one-redis.yaml
-        images: ghcr.io/vergiet/azure-vote:latest
+        images: ghcr.io/vergiet/azure-vote:0.1.1
         kubectl-version: 'latest'

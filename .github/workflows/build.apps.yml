@@ -31,5 +31,5 @@ jobs:
         context: ./azure-vote/.
         file: ./azure-vote/Dockerfile
         push: true
-        tags: ghcr.io/vergiet/azure-vote:latest, ghcr.io/vergiet/azure-vote:0.1.0
+        tags: ghcr.io/vergiet/azure-vote:latest, ghcr.io/vergiet/azure-vote:0.1.1
 
