@@ -1,0 +1,30 @@
+name: vote_app_-_deploy
+
+
+on:
+  registry_package:
+    types: [published, updated]
+  workflow_run:
+    workflows: ["vote_app_-_build"]
+    types: 
+      - completed
+
+jobs:  
+  Deploy:
+    
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: azure/aks-set-context@v1
+      with:
+        creds: '${{ secrets.AZURE_CREDENTIALS }}'
+        cluster-name: 'aks-temp'
+        resource-group: 'aks-temp'
+    - name: deploy service to aks
+      uses: Azure/k8s-deploy@v1.3
+      with:
+        manifests: |
+            azure-vote-all-in-one-redis.yml
+        images: ghcr.io/vergiet/azure-vote:latest
+        kubectl-version: 'latest'
